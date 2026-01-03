@@ -4,17 +4,18 @@ import {randomUUID} from 'crypto'
 const chatSchema = new mongoose.Schema({
     id:{
         type: String,
-        default: randomUUID(),
+        default: randomUUID,
     },
     role:{
         type: String,
+        enum: ["user", "assistant",],
         required: true
     },
     content:{
         type: String,
         required: true
     }
-})
+},{_id: false})
 
 const UserSchema = new  mongoose.Schema({
     name:{
